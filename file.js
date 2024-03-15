@@ -113,7 +113,7 @@ function lotteria() {
 
 
 
-/*07 Scrivere un programma che stampi la tabellina del 2, fino al numero 1000.
+/*JSnack07 Scrivere un programma che stampi la tabellina del 2, fino al numero 1000.
 Modificate poi il programma in modo che venga chiesto all'utente il numero massimo consentito, e stampare tutta la tabellina del 2 fino al numero inserito.*/
 
 //Invoca la funzione per provare l'esercizio
@@ -127,23 +127,59 @@ function tabellinaDelDue() {
 
 
 
-/*Scrivere un programma a cui venga chiesto all'utente di inserire numeri uno dopo l'altro.
+/*JSnack10 Scrivere un programma a cui venga chiesto all'utente di inserire numeri uno dopo l'altro.
 Quando l'utente scriverà 2 volte consecutive lo stesso numero allora il programma dovrà terminare.*/
 
+//Invoca la funzione per provare l'esercizio
+function ilNumeroDoppione() {
+    let n = prompt("Inserisci un Numero");
+    for (let i = 0; i < n; i++) {
+        let numeroInserito = prompt("Inserisci un Numero");
+        if (numeroInserito === n) {
+            alert("Programma Terminato");
+        }
+    }
+}
 
 
 
+/*JSnack11 Creare una funzione che stampa il cubo dei primi N numeri, dove N è un numero indicato dall’utente.
+ Una volta creata la funzione chiedere all'utente di inserire N con un 
+ prompt e richiamate la funzione per dare la risposta all'utente.  */
+
+//Invoca la funzione per provare l'esercizio
+function ilCuboNumeriPrimi() {
+
+}
 
 
+/*JSnack12 & JSnack13 Crea una funzione chiamata sommaNumeri che dato un array di 10 numeri
+ definito da voi nel codice, ne calcoli la loro somma e la restituisca come risultato.
+ Utilizzare la funzione sommaNumeri per stampare il risultato ottenuto. */
+
+//Invoca la funzione per provare l'esercizio
+function sommaeMediaNumeri() {
+    let sommaNumeri = 0;
+    let arrauNum = [2, 5, 9, 10, 55, 89, 12, 45, 63, 77];
+    for (let i = 0; i < arrauNum.length; i++) {
+        sommaNumeri += arrauNum[i];
+    } let media = sommaNumeri / arrauNum.length;
+    console.log(media)
+}
 
 
+/*JSnack14 Chiedi un numero di 4 cifre all’utente. Crea e usa una funzione che 
+calcola la somma di tutte le cifre che compongono il numero e ritorni il risultato. 
+Usa questa funzione per stampare poi a video il risultato ottenuto.*/
 
+//Invoca la funzione per provare l'esercizio
+function sommaDelleCifre() {
+    let dividere = prompt("inserisci un numero di 4cifre per farne la somma");
+    let somma = 0;
+    for (let i = 0; i < dividere.length; i++) {
+        let num = parseInt(dividere[i]);
+        parseInt(somma+=num);
+        
+    }console.log(somma)
 
-
-
-
-
-
-
-
-
+}

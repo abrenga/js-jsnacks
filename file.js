@@ -1,5 +1,9 @@
+/*Ho svolto tutti gli esercizi richiesti, ho poi approfondito gli argomenti sugli Array e sulle sue proprietà(ho guardato anche il while ma non l'ho usato) 
+Ho deciso di mettrmi alla prova inserendo tutti gli esercizzi con il relativo "codice esercizio" dentro un Array associativo ho poi creato delle card nel HTML e un input che prendesse in automatico il codice dell'esercizio che si voleva provare*/
 
-[
+
+/*Array Associativo contiene id, paragrafo che spiega l'esercizio, e la funzione che svolge l'esercizio */
+const esercizi = [
     {
         id: "JSnack01",
         paragrafo: "L’utente inserisce due numeri in successione, con due prompt Il software stampa il maggiore",
@@ -183,13 +187,46 @@
             for (let i = 0; i < dividere.length; i++) {
                 let num = parseInt(dividere[i]);
                 parseInt(somma += num);
-        
+
             } console.log(somma)
-        
+
         }
-        
+
     },
 ]
 
+/*Bottone al click verifica il contenuto del input e invoca la funzione che "estrapola" l'esercizio */
 
-/*Al momento ho svolto tutti gli esercizzi e sono funzionanti, verrà poi generato un evento che invocherà le varie funzioni work in progress :) */
+const btn = document.getElementById("btn");
+btn.addEventListener("click", (e) => {
+    let input = document.getElementById("input").value
+    estrapolaEsercizio(input);
+})
+
+
+/*scorre tutto l'Array Associativo se l'id inserito nel input è uguale a uno degli id nell'array associativo prende l'esercizio */
+function estrapolaEsercizio(inputValue) {
+    for (let i = 0; i < esercizi.length; i++) {
+        if (inputValue !== esercizi[i].id) {
+            continue;
+        } else {
+            prendiEsercizio(esercizi[i]);
+
+        }
+    }
+}
+
+
+/*Prende l'esercizo dal''array e lo assovio al HTML */
+function prendiEsercizio(esercizio) {
+    let idGioco = document.getElementById("idGioco");
+    let paragrafo = document.getElementById("paragrafo");
+    idGioco.textContent = esercizio.id;
+    paragrafo.textContent = esercizio.paragrafo;
+    esercizio.invocazione();
+    
+}
+
+/*mi sono divertita tantissimo ad implementare questo esercizio e sono entusiasta di averlo fatto funzionare *-*  */
+
+

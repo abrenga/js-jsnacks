@@ -198,33 +198,48 @@ const esercizi = [
 /*Bottone al click verifica il contenuto del input e invoca la funzione che "estrapola" l'esercizio */
 
 const btn = document.getElementById("btn");
-btn.addEventListener("click", (e) => {
-    let input = document.getElementById("input").value
+
+
+const btnCerca = document.getElementById("inputGroup-sizing-sm");
+btnCerca.addEventListener("click", (e) => {
+    let input = document.getElementById("floatingInput").value
     estrapolaEsercizio(input);
+})
+
+let esercizioSelezionato = null;
+btn.addEventListener("click", (e) => {
+    if (esercizioSelezionato !== null) {
+        invocaEsercizio(esercizioSelezionato);
+    }
 })
 
 
 /*scorre tutto l'Array Associativo se l'id inserito nel input è uguale a uno degli id nell'array associativo prende l'esercizio */
 function estrapolaEsercizio(inputValue) {
+    esercizioSelezionato = null;
+
     for (let i = 0; i < esercizi.length; i++) {
         if (inputValue !== esercizi[i].id) {
             continue;
         } else {
-            prendiEsercizio(esercizi[i]);
-
+            esercizioSelezionato = esercizi[i];
+            prendiTestoEsercizio(esercizioSelezionato);
         }
     }
 }
 
 
 /*Prende l'esercizo dal''array e lo assovio al HTML */
-function prendiEsercizio(esercizio) {
+function prendiTestoEsercizio(esercizio) {
     let idGioco = document.getElementById("idGioco");
     let paragrafo = document.getElementById("paragrafo");
     idGioco.textContent = esercizio.id;
     paragrafo.textContent = esercizio.paragrafo;
-    esercizio.invocazione();
-    
+}
+
+
+function invocaEsercizio(esercizio) {
+    return esercizio.invocazione();
 }
 
 /*mi sono divertita tantissimo ad implementare questo esercizio e sono entusiasta di averlo fatto funzionare *-*  */

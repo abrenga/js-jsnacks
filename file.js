@@ -195,7 +195,7 @@ const esercizi = [
     },
 ]
 
-/*Bottone al click verifica il contenuto del input e invoca la funzione che "estrapola" l'esercizio */
+/*Bottone al click verifica il contenuto del input e invoca la funzione che "estrapola" l'esercizio VERSIONE CON L?INPUT
 
 const btn = document.getElementById("btn");
 
@@ -214,7 +214,7 @@ btn.addEventListener("click", (e) => {
 })
 
 
-/*scorre tutto l'Array Associativo se l'id inserito nel input è uguale a uno degli id nell'array associativo prende l'esercizio */
+/*scorre tutto l'Array Associativo se l'id inserito nel input è uguale a uno degli id nell'array associativo prende l'esercizio 
 function estrapolaEsercizio(inputValue) {
     esercizioSelezionato = null;
 
@@ -229,7 +229,7 @@ function estrapolaEsercizio(inputValue) {
 }
 
 
-/*Prende l'esercizo dal''array e lo assovio al HTML */
+/*Prende l'esercizo dal''array e lo assovio al HTML 
 function prendiTestoEsercizio(esercizio) {
     let idGioco = document.getElementById("idGioco");
     let paragrafo = document.getElementById("paragrafo");
@@ -242,6 +242,52 @@ function invocaEsercizio(esercizio) {
     return esercizio.invocazione();
 }
 
-/*mi sono divertita tantissimo ad implementare questo esercizio e sono entusiasta di averlo fatto funzionare *-*  */
+/*mi sono divertita tantissimo ad implementare questo esercizio e sono entusiasta di averlo fatto funzionare *-* 
 
+oggi ho pensato che fosse carino avere una select list invece che un input anche perchè nelle slide non ci sono tutti i numeri quindi di seguito la versione:*/
+//HO avuto molta difficoltà ha trovare come usare l'evento "change"
+
+
+const tagSelect = document.getElementById("inputGroupSelect01");
+const btn = document.getElementById("btn");
+
+
+
+function visualizzaEsercizi() {
+    for (let i = 0; i < esercizi.length; i++) {
+
+        visualizaOPTinHTML(esercizi[i].id);
+    }
+}
+
+tagSelect.addEventListener("change", (e) => {
+    const selector = e.target;
+    const idEsercizio = selector.options[selector.selectedIndex].text;
+    for (let i = 0; i < esercizi.length; i++) {
+        if (idEsercizio == esercizi[i].id) {
+            prendiTestoEsercizio(esercizi[i]);
+            btn.addEventListener("click", (e) => {
+                esercizi[i].invocazione();
+
+            });
+        }
+    }
+});
+
+function prendiTestoEsercizio(esercizio) {
+    let idGioco = document.getElementById("idGioco");
+    let paragrafo = document.getElementById("paragrafo");
+    idGioco.textContent = esercizio.id;
+    paragrafo.textContent = esercizio.paragrafo;
+}
+
+function visualizaOPTinHTML(id) {
+    let tagoption = document.createElement("option");
+    tagSelect.appendChild(tagoption);
+    tagoption.textContent = id;
+}
+
+
+
+visualizzaEsercizi();
 

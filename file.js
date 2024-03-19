@@ -14,7 +14,7 @@ const esercizi = [
                 const numeroIserito = parseInt(prompt("Inserisci un Numero"));
                 arrayNum.push(numeroIserito);
                 let maggiore = arrayNum[0];
-                if (isNaN) {
+                if (isNaN(numeroIserito)) {
                     alert("inserisci solo numeri");
                 }
                 else if (maggiore < arrayNum[i]) {
